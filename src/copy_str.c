@@ -2,12 +2,8 @@
 #include <stdlib.h>
 #include "tokenizer.h"
 char *copy_str(char *inStr, short len){
-  char *copiedString;
-  char *internalPtr;
-  /*malloc allocates <len> number of places in memory to be used*/
-  internalPtr = (char *)malloc((int)len+1);
-  /*both pointers point to the same preallocated memory*/
-  copiedString= internalPtr;
+  char *internalPtr = (char *)malloc((int)len+1);
+  char *copiedString = internalPtr;
   int counter = (int)len;
   //condition makes sure we only take the number defined by len
   while(counter >0){

@@ -3,11 +3,11 @@
 #include "tokenizer.h"
 char **tokenize(char* str){
   //Allocate space in memory for a pointer that points to pointers
-  char **internalPointer = (char**) malloc(count_words(str)*sizeof(char *));
+  char **internalPointer = (char**) malloc((count_words(str)+1)*sizeof(char *));
   char **ptrToBeReturned = internalPointer;
   //The while loop iterates until it reaches the end of the string
   while (*str != '\0'){
-    //counter keeps track of how many words are found in the given string
+    //counter keeps track of how many letters are after the start of the word
     int counter = 0;
     //iterates str to point to the beginning of the next word
     str = word_start(str);
@@ -18,7 +18,9 @@ char **tokenize(char* str){
       str++;
       counter++;
     }
+    
     char *addedToken = copy_str(str-counter,counter);
+    
     //adds the token to the internal double pointer
     *internalPointer= addedToken;
     internalPointer++;

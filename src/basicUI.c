@@ -9,7 +9,7 @@ void main(){
   while(1){
     printf("Please enter input|'?INTEGER' gets specific history|'>' prints history|'&' frees\n");
     /*dynamically allocates memory */
-    char *ptr = (char*) malloc(100*sizeof(char));
+    char *ptr = (char*) malloc(100*sizeof(char*));
     char *ptrToBeTokenized = ptr;
     char a;
     a = getchar();
@@ -45,7 +45,12 @@ void main(){
       /*manually enters the terminator character to the *ptr so we can stop.*/
       ptr = '\0';
       /*adds the created *ptr to history*/
-      add_history(history, ptrToBeTokenized);
+       char **tokenizedPtr = tokenize(ptrToBeTokenized);
+    
+       while(**tokenizedPtr != '\0'){
+	 add_history(history, *tokenizedPtr);
+	 tokenizedPtr++;
+        }
     }
   }
 }
