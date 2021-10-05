@@ -1,0 +1,6 @@
+run: basicUI.c copy_str.c count_words.c history_methods.c tokenize.c whiteOrNot.c word_start_end.c
+	gcc -o run basicUI.c copy_str.c count_words.c history_methods.c tokenize.c whiteOrNot.c word_start_end.c
+clean:
+	rm *.c~
+	rm *.~
+	rm *.#

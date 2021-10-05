@@ -31,6 +31,7 @@ void main(){
     case '&':
       a = getchar();
       free_history(history);
+      history = init_history();
       break;
     //if the user isn't using any of the functions then whatever they type has to be stored in history 
     default:

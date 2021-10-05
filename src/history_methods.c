@@ -1,3 +1,4 @@
+
 #include<stdio.h>
 #include<stdlib.h>
 #include "history.h"
@@ -30,26 +31,39 @@ void add_history(List *list, char *str){
       temporary = temporary->next;
     }
     //all of the new node's attributes are set
-    new->next = new;
+    temporary->next = new;
     new->id = temporary -> id + 1;
     new->str = str;
     new->next = NULL;
   }
 }
 char *get_history(List *list, int id){
+  char *returnPtr = '\0';
   //creates local copy of list
   struct s_Item *localList = list->root;
+  //condition covers edge case of being given invalid id
+  if(id < 1){
+    printf("Item IDs begin at 1.\n");
+    return returnPtr; 
+  }
+  //condition covers edge case of having an empty list
+  if(localList ==NULL){
+    printf("There's no history to check\n");
+    return returnPtr;
+  }
   //while loop iterates until end of linked-list is reached or desired id is found
   while (localList->id != id){
+    localList = localList->next;
     if(localList == NULL){
       printf("There's no item in history with that id.\n");
-      break;
+      return returnPtr;
     }
-    localList = localList->next;
+    
   }
   //returns the value stored in the current node's str attribute
-  char *returnPtr = localList->str;
+  returnPtr = localList->str;
   //prints the string
+  printf("ID: #%d | ", id);
   while(*returnPtr != '\0'){
     printf("%c",*returnPtr);
     returnPtr++;
