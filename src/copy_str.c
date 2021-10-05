@@ -19,7 +19,7 @@ char *copy_str(char *inStr, short len){
     counter -=1;
   }
   //Adds the zero terminator
-  *copiedString =(char) '\0';
+  *internalPtr=(char) '\0';
   //return unmodifed pointer since it stayed in the same place
   return copiedString;
 }
