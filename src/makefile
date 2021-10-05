@@ -4,3 +4,6 @@ clean:
 	rm *.c~
 	rm *.~
 	rm *.#
+	rm *~
+	rm *.o
+	rm *.c#
