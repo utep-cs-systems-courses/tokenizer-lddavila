@@ -7,3 +7,4 @@ clean:
 	rm *~
 	rm *.o
 	rm *.c#
+	rm makefile~
